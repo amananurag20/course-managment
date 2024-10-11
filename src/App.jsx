@@ -1,11 +1,16 @@
-import { Button } from "@/components/ui/button"
+import { Routes, Route } from "react-router-dom";
+import AuthPage from "./pages/Auth/AuthPage";
+import AuthContext, { AuthProvider } from "./context/authContext";
+import { useState } from "react";
 
 const App = () => {
   return (
-    <div className=" mx-16">
-      <Button className="" variant="destructive">Click me</Button> 
-    </div>
-  )
-}
+    <AuthProvider>
+      <Routes>
+        <Route path="/auth" element={<AuthPage />}></Route>
+      </Routes>
+    </AuthProvider>
+  );
+};
 
-export default App
+export default App;
